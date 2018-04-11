@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { Observable, Subscription } from 'rxjs'
-import { Option } from 'funfix'
 import { SearchModel } from './search-model'
 import { ESC_CODE } from '../../utils/strings'
 
-export interface SearchResult {
+export interface Video {
   id: string
   name: string
   thumbnailUrl: string
@@ -12,7 +11,7 @@ export interface SearchResult {
 }
 
 export class SearchResults extends React.Component<
-  { results: SearchResult[]; model: SearchModel },
+  { results: Video[]; model: SearchModel },
   { visible: boolean }
 > {
   private _subs: Subscription[] = []
@@ -75,7 +74,7 @@ export class SearchResults extends React.Component<
                         <button
                           className="playBtn"
                           id="playBtn"
-                          onClick={() => this.props.model.currentVideo.next(Option.of(r))}
+                          onClick={() => this.props.model.currentVideo.next(r)}
                         >
                           Play
                         </button>

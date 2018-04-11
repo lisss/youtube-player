@@ -2,20 +2,17 @@ import * as React from 'react'
 import YouTube from 'react-youtube'
 import { Observable } from 'rxjs'
 import { Option, None, Some } from 'funfix'
-import { SearchModel, SearchResult } from '../search'
+import { SearchModel, Video } from '../search'
 import { UserSettings } from '../../utils/settings'
 import { getVideoPrefix } from '../../utils/utils'
 
-export class Player extends React.Component<
-  { model: SearchModel },
-  { video: Option<SearchResult> }
-> {
+export class Player extends React.Component<{ searchModel: SearchModel }, { video: Video }> {
   componentWillMount() {
-    this.setState({ video: None }) //TODO: default state?
+    this.setState({ video: null }) //TODO: default state?
   }
 
   componentDidMount() {
-    this.props.model.currentVideo.subscribe(video => this.setState({ video }))
+    this.props.searchModel.currentVideo.subscribe(video => this.setState({ video }))
   }
 
   render() {
@@ -31,15 +28,16 @@ export class Player extends React.Component<
 
     return (
       <div>
-        {vid.fold(
-          () => <YouTube />,
-          v => <YouTube videoId={v.id} opts={opts} onPlay={() => this._onPlay(v)} />
+        {vid ? (
+          <YouTube videoId={vid.id} opts={opts} onPlay={() => this._onPlay(vid)} />
+        ) : (
+          <YouTube />
         )}
       </div>
     )
   }
 
-  _onPlay(video: SearchResult) {
+  _onPlay(video: Video) {
     UserSettings.write(getVideoPrefix(video.id), video)
   }
 }

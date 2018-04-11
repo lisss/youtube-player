@@ -76,6 +76,7 @@
   color: #8189a9;
   text-transform: uppercase;
   padding: 0.5rem 0.5rem 0.5rem 0.4rem;
+  outline: none;
 }
 
 .playBtn:hover {

@@ -5,10 +5,10 @@ export const HISTORY_PREFIX = 'ytp-'
 export namespace UserSettings {
   const ls = window.localStorage
 
-  export const read = <T extends {}>(key: string): Option<T> => {
+  export const read = <T extends {}>(key: string): T | undefined => {
     try {
       const item = ls.getItem(key)
-      return item ? Option.of(JSON.parse(item)) : None
+      return item && JSON.parse(item)
     } catch (e) {
       console.error
     }
