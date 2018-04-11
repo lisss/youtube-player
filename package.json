@@ -1,0 +1,43 @@
+{
+  "name": "youtube-player",
+  "version": "1.0.0",
+  "description": "Simple app for searching and playing YouTube videos",
+  "main": "index.js",
+  "author": "Liss",
+  "license": "MIT",
+  "homepage": "https://github.com/lisss/youtube-player",
+  "files": ["lib/"],
+  "scripts": {
+    "copy_files": "cp -r src/index.html lib/",
+    "prettier:lint": "prettier --no-semi --single-quote --print-width 100 -l '**/*.ts?(x)'",
+    "prettier:fix": "prettier --no-semi --single-quote --print-width 100 --write '**/*.ts?(x)'",
+    "lint:ts": "tslint --fix --project tsconfig.json --format stylish",
+    "lint": "yarn lint:ts && yarn prettier:lint",
+    "build": "rm -rf lib && yarn lint && yarn prettier:lint && webpack && yarn copy_files",
+    "dev": "yarn build && webpack-dev-server --hot --inline"
+  },
+  "dependencies": {
+    "@types/node": "9.6.2",
+    "@types/react": "16.3.5",
+    "@types/react-dom": "16.0.4",
+    "@types/react-youtube": "7.4.1",
+    "css-loader": "0.28.11",
+    "funfix": "7.0.1",
+    "googleapis": "28.1.0",
+    "isomorphic-fetch": "2.2.1",
+    "react": "16.3.1",
+    "react-dom": "16.3.1",
+    "react-youtube": "7.5.0",
+    "rxjs": "5.5.8",
+    "style-loader": "0.20.3",
+    "ts-loader": "4.1.0",
+    "typescript": "2.8.1",
+    "webpack": "4.5.0",
+    "webpack-dev-server": "3.1.1"
+  },
+  "devDependencies": {
+    "prettier": "1.11.1",
+    "tslint": "5.9.1",
+    "webpack-cli": "^2.0.14"
+  }
+}

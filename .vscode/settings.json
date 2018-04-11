@@ -1,0 +1,22 @@
+{
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "typescript.format.enable": false,
+  "javascript.format.enable": false,
+  "prettier.printWidth": 100,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.javascriptEnable": ["javascript", "javascriptreact"],
+  "prettier.typescriptEnable": ["typescript", "typescriptreact"],
+  "css.validate": false,
+  "tslint.alwaysShowRuleFailuresAsWarnings": true,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/lib": true
+  }
+}

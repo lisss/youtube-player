@@ -1,0 +1,83 @@
+@import url('../../base');
+
+.searchContainer {
+  margin: 2rem 0 2rem 23.5rem;
+}
+
+.searchInput {
+  line-height: 1.5rem;
+  outline: none;
+  font-size: 1rem;
+  padding: 0.3rem;
+  width: 32.8rem;
+  border: 1px solid var(--color-lightGray);
+  font-family: inherit;
+}
+
+.searchList {
+  list-style-type: none;
+  padding-left: 0;
+  position: fixed;
+  background-color: white;
+  width: 33.4rem;
+  margin-top: 0;
+  border: 1px solid var(--color-lightGray);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 2px 0 0 2px;
+  animation: 0.2s ease-in 0s 1 appear;
+}
+
+.searchListItem {
+  display: flex;
+  flex-direction: column;
+  margin: 0.75rem 0;
+  text-align: left;
+  padding: 0 0.75rem;
+  animation: 0.2s ease-in 0s 1 listItemDisplay;
+}
+
+.searchItem {
+  display: flex;
+  text-align: left;
+}
+
+.itemDetails {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  width: 100%;
+}
+
+.itemDescription {
+  margin: 1rem;
+  max-width: 19rem;
+}
+
+.itemTitle {
+  font-size: 1.3rem;
+  padding-bottom: 0.5rem;
+}
+
+.itemVotes {
+  font-size: 0.8rem;
+  color: #8189a9;
+}
+
+.playBtn {
+  height: 2rem;
+  width: 3rem;
+  transform: translateY(2rem);
+  border-radius: 0.1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--color-lightGray);
+  font-family: inherit;
+  font-size: 0.8rem;
+  color: #8189a9;
+  text-transform: uppercase;
+  padding: 0.5rem 0.5rem 0.5rem 0.4rem;
+}
+
+.playBtn:hover {
+  cursor: pointer;
+  color: black;
+}

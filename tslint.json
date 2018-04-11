@@ -1,0 +1,28 @@
+{
+  "rules": {
+    "no-console": [true, "log", "warn", "debug", "time"],
+    "quotemark": [false],
+    "no-extra-semi": false,
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-operator",
+      "check-decl",
+      "check-type",
+      "check-module",
+      "check-typecast"
+    ],
+    "max-line-length": [false],
+    "semicolon": [false],
+    "ensure-semi": false,
+    "jsdoc-format": false,
+    "no-string-throw": true,
+    "strict-boolean-expressions": false,
+    "no-unbound-method": false,
+    "prefer-function-over-method": false,
+    "no-unused-variable": true,
+    "await-promise": false,
+    "prefer-method-signature": false,
+    "no-use-before-declare": true
+  }
+}
