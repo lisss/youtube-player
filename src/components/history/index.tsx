@@ -39,9 +39,14 @@ export class WatchHistory extends React.Component<
   }
 
   render() {
+    const containerClass = `historyContainer ${
+      this.state.history.length > 0 ? 'historyEnabled' : 'historyDisabled'
+    }`
+
     return (
-      <div className="historyContainer">
+      <div className={containerClass}>
         <div className="historyTitle">Watch History</div>
+        <div className="scrollTop" />
         <ul className="historyList">
           {this.state.history.map(item =>
             item.fold(
@@ -71,6 +76,7 @@ export class WatchHistory extends React.Component<
             )
           )}
         </ul>
+        <div className="scrollBottom" />
       </div>
     )
   }

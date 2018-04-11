@@ -30,7 +30,7 @@ export class Player extends React.Component<
     const vid = this.state.video
 
     return (
-      <div className="player">
+      <div>
         {vid.fold(
           () => <YouTube />,
           v => <YouTube videoId={v.id} opts={opts} onPlay={() => this._onPlay(v)} />

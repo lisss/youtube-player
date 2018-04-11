@@ -1,7 +1,6 @@
 .mainContainer {
-  font-family: "Akkurat Std", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  /* min-width: 70rem; */
+  font-family: 'Akkurat Std', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Helvetica Neue', sans-serif;
 }
 
 .playerContainer {

@@ -4,19 +4,48 @@
   margin: 0 3rem 0 2rem;
   min-width: 20rem; /** Don't show it al at all if no content*/
   margin-top: -3rem;
+  max-width: 20rem;
+}
+
+.historyEnabled {
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+
+.historyDisabled {
+  opacity: 0.5;
 }
 
 .historyTitle {
   font-size: 1.6rem;
   padding-left: 1rem;
+  line-height: 2.15rem;
+}
+
+.scrollTop {
+  z-index: 1000;
+  background: linear-gradient(to bottom, #fff 78%, rgba(255, 255, 255, 0) 100%);
+  position: fixed;
+  width: 20rem;
+  height: 2rem;
+  transform: translateY(0.85rem);
+}
+
+.scrollBottom {
+  z-index: 1000;
+  background: linear-gradient(to top, #fff 78%, rgba(255, 255, 255, 0) 100%);
+  position: fixed;
+  width: 20rem;
+  height: 2rem;
+  transform: translateY(-2.9rem);
 }
 
 .historyList {
-  border: 1px solid black;
+  font-size: 0.9rem;
   list-style-type: none;
-  min-height: 20.4rem;
+  height: 20.4rem;
+  overflow: scroll;
   padding: 1rem;
-  border: 1px solid #e4e6f2;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -26,10 +55,7 @@
   margin: 0.75rem 0 1rem;
   padding: 0 0.75rem;
   animation: 0.2s ease-out 0s 1 appear;
-}
-
-.historyListItemHidden {
-  animation: 0.3s ease-in 0s 1 disappear;
+  font-weight: 300;
 }
 
 .deleteBtn {
@@ -37,6 +63,11 @@
   color: #7ca8ef;
   display: flex;
   flex-direction: column-reverse;
+  font-weight: 200;
+}
+
+.historyItemDetails {
+  padding-right: 1rem;
 }
 
 .historyItemDetails:hover {

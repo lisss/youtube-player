@@ -63,7 +63,7 @@ export class SearchResults extends React.Component<
           this.state.visible && (
             <ul className="searchList" id="searchList">
               {res.map(r => (
-                <li className="searchListItem">
+                <li className="searchListItem" key={r.id}>
                   {
                     <div className="searchItem">
                       <img src={r.thumbnailUrl} />
