@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { Observable, Subscription } from 'rxjs'
 import { SearchModel } from './search-model'
-import { Video, SearchResults } from './search-result'
+import { SearchResults } from './search-result'
+import { YoutubeSearchResponse, YoutubVideoResponse, Video } from '../../base/types'
 
 export { SearchModel, Video }
 
@@ -37,22 +38,22 @@ export class Search extends React.Component<
       searchModel.search(searchString).then(res => {
         res
           .json()
-          .then(resJson =>
+          .then((resJson: YoutubeSearchResponse) =>
             resJson.items.filter(item => item.id.videoId !== undefined).map(item => {
               return searchModel.getStats(item.id.videoId).then(stats =>
-                stats.json().then(res => {
+                stats.json().then((res: YoutubVideoResponse) => {
                   return {
                     id: item.id.videoId,
                     name: item.snippet.title,
                     thumbnailUrl: item.snippet.thumbnails.default.url,
-                    likes: res.items[0].statistics.likeCount
-                  } as Video
+                    likes: Number(res.items[0].statistics.likeCount)
+                  }
                 })
               )
             })
           )
           .then(async res => {
-            const searchResults = (await Promise.all(res)) as any // TODO: types!
+            const searchResults = await Promise.all(res)
             this.props.searchModel.searchResults.next(searchResults)
           })
       })

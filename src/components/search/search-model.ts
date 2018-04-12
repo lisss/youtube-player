@@ -1,10 +1,12 @@
 import { BehaviorSubject } from 'rxjs'
 import { Video } from '.'
 import { appConfig } from '../../base/config'
+import { PlayerModel } from '../player/player-model'
 
 export class SearchModel {
+  constructor(public playerModel: PlayerModel) {}
+
   searchResults = new BehaviorSubject<Video[]>([])
-  currentVideo = new BehaviorSubject<Video>(null)
 
   private _url = appConfig.urls.youtubeUrl
   private _key = appConfig.appSettings.googleDevKey

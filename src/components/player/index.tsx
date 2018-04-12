@@ -1,18 +1,18 @@
 import * as React from 'react'
 import YouTube from 'react-youtube'
 import { Observable } from 'rxjs'
-import { Option, None, Some } from 'funfix'
+import { PlayerModel } from './player-model'
 import { SearchModel, Video } from '../search'
 import { UserSettings } from '../../utils/settings'
 import { getVideoPrefix } from '../../utils/utils'
 
-export class Player extends React.Component<{ searchModel: SearchModel }, { video: Video }> {
+export class Player extends React.Component<{ playerModel: PlayerModel }, { video: Video }> {
   componentWillMount() {
-    this.setState({ video: null }) //TODO: default state?
+    this.setState({ video: null })
   }
 
   componentDidMount() {
-    this.props.searchModel.currentVideo.subscribe(video => this.setState({ video }))
+    this.props.playerModel.currentVideo.subscribe(video => this.setState({ video }))
   }
 
   render() {

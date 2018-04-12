@@ -4,7 +4,7 @@ import { HistoryModel } from './history-model'
 import './index.css'
 
 export class WatchHistory extends React.Component<
-  { searchModel: SearchModel; historyModel: HistoryModel },
+  { historyModel: HistoryModel },
   { history: Video[] }
 > {
   componentWillMount() {
@@ -33,7 +33,7 @@ export class WatchHistory extends React.Component<
                     <span
                       className="historyItemDetails"
                       title="Click to play"
-                      onClick={() => this.props.searchModel.currentVideo.next(it)}
+                      onClick={() => this.props.historyModel.playerModel.currentVideo.next(it)}
                     >
                       {it.name}
                     </span>

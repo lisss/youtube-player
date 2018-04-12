@@ -2,13 +2,7 @@ import * as React from 'react'
 import { Observable, Subscription } from 'rxjs'
 import { SearchModel } from './search-model'
 import { ESC_CODE } from '../../utils/strings'
-
-export interface Video {
-  id: string
-  name: string
-  thumbnailUrl: string
-  likes: number
-}
+import { Video } from '.'
 
 export class SearchResults extends React.Component<
   { results: Video[]; model: SearchModel },
@@ -73,7 +67,7 @@ export class SearchResults extends React.Component<
                         <button
                           className="playBtn"
                           id="playBtn"
-                          onClick={() => this.props.model.currentVideo.next(r)}
+                          onClick={() => this.props.model.playerModel.currentVideo.next(r)}
                         >
                           Play
                         </button>
