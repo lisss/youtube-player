@@ -8,7 +8,11 @@
 
 ## Build and run
 
-`yarn && yarn dev`
+```
+yarn && yarn dev
+```
+
+Navigate to `http://localhost:<port>` (usually 8080) in your browser
 
 ## TODO
 
