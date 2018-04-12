@@ -24,8 +24,7 @@ export class SearchResults extends React.Component<
     const shouldHideOnClick = Observable.fromEvent<KeyboardEvent>(document, 'click').filter(e => {
       const list = document.getElementById('searchList')
       if (list) {
-        const playBtn = document.getElementById('playBtn')
-        return e.srcElement === playBtn || !list.contains(e.srcElement)
+        return e.srcElement.id === 'playBtn' || !list.contains(e.srcElement)
       }
     })
 

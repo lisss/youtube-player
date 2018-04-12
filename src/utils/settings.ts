@@ -1,7 +1,3 @@
-import { Option, None } from 'funfix'
-
-export const HISTORY_PREFIX = 'ytp-'
-
 export namespace UserSettings {
   const ls = window.localStorage
 

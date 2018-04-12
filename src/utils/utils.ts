@@ -1,3 +1,3 @@
-import { HISTORY_PREFIX } from './settings'
+import { appConfig } from '../base/config'
 
-export const getVideoPrefix = (id: string) => HISTORY_PREFIX + id
+export const getVideoPrefix = (id: string) => appConfig.userSettings.historyPrefix + id

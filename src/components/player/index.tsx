@@ -17,7 +17,7 @@ export class Player extends React.Component<{ searchModel: SearchModel }, { vide
 
   render() {
     const opts = {
-      height: '390',
+      height: '360',
       width: '640',
       playerVars: {
         autoplay: 1 as 1

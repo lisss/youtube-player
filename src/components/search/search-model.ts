@@ -1,21 +1,25 @@
 import { BehaviorSubject } from 'rxjs'
 import { Video } from '.'
-import { Option, None } from 'funfix'
-
-const URL = 'https://www.googleapis.com/youtube/v3'
-const DEVELOPER_KEY = 'AIzaSyCIE-kYpDnEGVHFqTvBkOUVMQG6Lep4fT0'
+import { appConfig } from '../../base/config'
 
 export class SearchModel {
   searchResults = new BehaviorSubject<Video[]>([])
   currentVideo = new BehaviorSubject<Video>(null)
 
+  private _url = appConfig.urls.youtubeUrl
+  private _key = appConfig.appSettings.googleDevKey
+
   search(searchString: string): Promise<Response> {
     return fetch(
-      `${URL}/search?part=snippet&q=${searchString}&key=${DEVELOPER_KEY}&order=relevance&maxResults=3`
+      `${this._url}/search?part=snippet&q=${searchString}&key=${
+        this._key
+      }&order=relevance&maxResults=3`
     )
   }
 
   getStats(videoId: string): Promise<Response> {
-    return fetch(`${URL}/videos?part=statistics&id=${videoId}&key=${DEVELOPER_KEY}&order=relevance`)
+    return fetch(
+      `${this._url}/videos?part=statistics&id=${videoId}&key=${this._key}&order=relevance`
+    )
   }
 }

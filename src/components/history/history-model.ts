@@ -1,11 +1,12 @@
 import { Subject, BehaviorSubject } from 'rxjs'
 import { Video, SearchModel } from '../search'
-import { UserSettings, HISTORY_PREFIX } from '../../utils/settings'
+import { UserSettings } from '../../utils/settings'
 import { getVideoPrefix } from '../../utils/utils'
+import { appConfig } from '../../base/config'
 
 export class HistoryModel {
   private _storedWatchHistory = UserSettings.getKeys()
-    .filter(k => k.startsWith(HISTORY_PREFIX))
+    .filter(k => k.startsWith(appConfig.userSettings.historyPrefix))
     .map(k => UserSettings.read<Video>(k))
 
   removedVideo = new Subject<Video>()
@@ -24,9 +25,6 @@ export class HistoryModel {
 
   removeVideo(video: Video) {
     UserSettings.remove(getVideoPrefix(video.id))
-
-    const it = document.getElementById(video.id)
-    it.classList.add('historyListItemHidden')
 
     this._storedWatchHistory.splice(this._storedWatchHistory.indexOf(video), 1)
     this.items.next(this._storedWatchHistory)
